@@ -1,11 +1,24 @@
-name: 'SemVer AutoBump'
-description: 'Automatically bumps version based on commit messages following Semantic Versioning 2.0.0'
-author: 'Your Name'
-inputs:
-  version-file:
-    description: 'Path to the version file (e.g., package.json)'
-    required: true
-    default: 'package.json'
-runs:
-  using: 'node20'
-  main: 'bump-version.js'
+name: Test Version Bump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-version-bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Run SemVer AutoBump
+        uses: ./  # Uses the action in the current directory
+        with:
+          version-file: 'package.json'
