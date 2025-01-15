@@ -1,0 +1,13 @@
+{
+    "name": "semver-auto-bump",
+    "version": "1.0.0",
+    "description": "GitHub Action to automatically bump version based on commits (Semantic Versioning 2.0.0)",
+    "main": "bump-version.js",
+    "scripts": {
+      "test": "echo 'No tests yet'"
+    },
+    "dependencies": {
+      "@actions/core": "^1.0.0"
+    }
+  }
+  

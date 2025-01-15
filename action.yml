@@ -1,0 +1,11 @@
+name: 'SemVer AutoBump'
+description: 'Automatically bumps version based on commit messages following Semantic Versioning 2.0.0'
+author: 'Your Name'
+inputs:
+  version-file:
+    description: 'Path to the version file (e.g., package.json)'
+    required: true
+    default: 'package.json'
+runs:
+  using: 'node12'
+  main: 'bump-version.js'

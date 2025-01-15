@@ -1,0 +1,21 @@
+name: Test Version Bump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-version-bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Run SemVer AutoBump
+        uses: ./  # Uses the action in the current directory
+        with:
+          version-file: 'package.json'
